@@ -1,49 +1,104 @@
-import type { Category } from './category'
-import type { Paciente } from './paciente'
+import type { Categoria } from "../types/categoria"
+import type { Flashcard } from "../types/flashcard"
+import type { Usuario } from "../types/usuario"
 
+// Interface del JSON que simula una base de datos
 export interface JsonDatabase {
-  categories: Category[]
-  pacientes: Paciente[]
+  usaurios: Usuario[]
+  categorias: Categoria[]
+  flashcards: Flashcard[]
 }
 
+// Objeto JSON que simula una base de datos
 export const database: JsonDatabase = {
-  categories: [
-    { id: 1, description: 'Medicina General', created_at: '2024-01-01' },
-    { id: 2, description: 'Pediatría', created_at: '2024-01-01' },
-    { id: 3, description: 'Cardiología', created_at: '2024-01-01' }
+    usaurios: [
+    {
+        id: 1,
+        nombre: "John Doe",
+        email: "john@gmail.com",
+            password: "password123",
+            flashcards: [
+                {
+                id: 1,
+                question: "A rule that limits something",
+                answer: "restriction",
+                iamgeUrl: "https://images.unsplash.com/photo-1",
+                category: [{ id: 1, descripcion: "Common 600 words" }]
+                },
+                {
+                id: 2,
+                question: "Forecast of a future event",
+                answer: "prediction",
+                iamgeUrl: "https://images.unsplash.com/photo-2",
+                category: [{ id: 1, descripcion: "Common 600 words" }]
+                },
+                {
+                id: 3,
+                question: "Being equal in status or rights",
+                answer: "equality",
+                iamgeUrl: "https://images.unsplash.com/photo-3",
+                category: [{ id: 1, descripcion: "Common 600 words" }]
+                }
+            ]
+        },
+        {
+            id: 2,
+            nombre: "Maria Smith",
+            email: "maria@gmail.com",
+            password: "mypassword",
+            flashcards: [
+                {
+                    id: 1,
+                    question: "A rule that limits something",
+                    answer: "restriction",
+                    iamgeUrl: "https://images.unsplash.com/photo-1",
+                    category: [{ id: 1, descripcion: "Common 600 words" }]
+                },
+                {
+                    id: 2,
+                    question: "Forecast of a future event",
+                    answer: "prediction",
+                    iamgeUrl: "https://images.unsplash.com/photo-2",
+                    category: [{ id: 1, descripcion: "Common 600 words" }]
+                },
+                {
+                    id: 3,
+                    question: "Being equal in status or rights",
+                    answer: "equality",
+                    iamgeUrl: "https://images.unsplash.com/photo-3",
+                    category: [{ id: 1, descripcion: "Common 600 words" }]
+                }
+            ]
+        }
+    ],
+
+  categorias: [
+    { id: 1, descripcion: "Common 600 words" },
+    { id: 2, descripcion: "Science" }
   ],
-  pacientes: [
+  flashcards: [
     {
       id: 1,
-      nombre: 'Juan Carlos',
-      apellido: 'González',
-      fecha_nacimiento: '1985-03-15',
-      genero: 'Masculino',
-      telefono: '+1-555-0123',
-      email: 'juan.gonzalez@email.com',
-      direccion: 'Calle Principal 123, Ciudad'
+      question: "A rule that limits something",
+      answer: "restriction",
+      iamgeUrl: "https://images.unsplash.com/photo-1",
+      category: [{ id: 1, descripcion: "Common 600 words" }]
     },
     {
       id: 2,
-      nombre: 'María Elena',
-      apellido: 'Rodríguez',
-      fecha_nacimiento: '1992-07-22',
-      genero: 'Femenino',
-      telefono: '+1-555-0456',
-      email: 'maria.rodriguez@email.com',
-      direccion: 'Avenida Central 456, Ciudad'
+      question: "Forecast of a future event",
+      answer: "prediction",
+      iamgeUrl: "https://images.unsplash.com/photo-2",
+      category: [{ id: 1, descripcion: "Common 600 words" }]
+    },
+    {
+      id: 3,
+      question: "Being equal in status or rights",
+      answer: "equality",
+      iamgeUrl: "https://images.unsplash.com/photo-3",
+      category: [{ id: 1, descripcion: "Common 600 words" }]
     }
   ]
 }
 
-// Contadores simples para IDs
-export let nextCategoryId = 4
-export let nextPacienteId = 3
 
-export function getNextCategoryId(): number {
-  return nextCategoryId++
-}
-
-export function getNextPacienteId(): number {
-  return nextPacienteId++
-} 

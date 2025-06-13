@@ -1,17 +1,26 @@
 import './style.css'
-// import { PacientePresentation } from './presentations/PacientePresentation'
-import { CategoryPresentation } from './presentations/CategoryPresentation'
-import { CategoryRepository, PacienteRepository } from './repositories'
+// // import { PacientePresentation } from './presentations/PacientePresentation'
+// import { CategoryPresentation } from './presentations/CategoryPresentation'
+// import { CategoryRepository, PacienteRepository } from './repositories'
 
-// Mostrar datos iniciales en consola
-console.log('📊 Datos iniciales cargados:')
-console.log('📋 Categorías:', CategoryRepository.getAll())
-console.log('👥 Pacientes:', PacienteRepository.getAll())
-console.log('📈 Estadísticas:')
-console.log(`   - Total categorías: ${CategoryRepository.count()}`)
-console.log(`   - Total pacientes: ${PacienteRepository.count()}`)
+// // Mostrar datos iniciales en consola
+// console.log('📊 Datos iniciales cargados:')
+// console.log('📋 Categorías:', CategoryRepository.getAll())
+// console.log('👥 Pacientes:', PacienteRepository.getAll())
+// console.log('📈 Estadísticas:')
+// console.log(`   - Total categorías: ${CategoryRepository.count()}`)
+// console.log(`   - Total pacientes: ${PacienteRepository.count()}`)
 
-// Inicializar la presentación de categorías
-new CategoryPresentation()
-// new PacientePresentation()
+// // Inicializar la presentación de categorías
+// new CategoryPresentation()
+// // new PacientePresentation()
 
+
+
+import { renderCategorias } from "./components/CategoriaComponente.ts"
+import { renderFlashcards } from "./components/FlashcardComponente.ts"
+
+window.onload = function() {
+  renderCategorias()
+  renderFlashcards()
+}
